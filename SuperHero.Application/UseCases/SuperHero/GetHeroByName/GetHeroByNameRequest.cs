@@ -7,8 +7,8 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SuperHero.Application.UseCases.SuperHero.GetHeroById
+namespace SuperHero.Application.UseCases.SuperHero.GetHeroByName
 {
-    public record GetHeroByIdRequest(Guid Id) : IRequest<Result<GetHeroByIdResponse>>;
+    public record GetHeroByNameRequest(string Name) : IRequest<Result<GetHeroByNameResponse>>;
 
 }

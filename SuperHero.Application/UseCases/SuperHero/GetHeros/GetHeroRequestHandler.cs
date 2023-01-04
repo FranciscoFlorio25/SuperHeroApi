@@ -22,14 +22,14 @@ namespace SuperHero.Application.UseCases.SuperHero.GetHeros
 
         public async Task<Result<GetHeroResponse>> Handle(GetHeroRequest request, CancellationToken cancellationToken)
         {
-            var heroes = await _context.SuperHeros.AsNoTracking().ToListAsync(cancellationToken);
+            var heros = await _context.SuperHeros.AsNoTracking().ToListAsync(cancellationToken);
 
-            if (heroes == null || !heroes.Any())
+            if (heros == null || !heros.Any())
             {
                 return "No heroes found, who could save us all!?";
             }
 
-            var foundHeroes = heroes.Select(x => new Heros(
+            var foundHeroes = heros.Select(x => new Heros(
                 x.Id,x.Name,x.Description,x.Publisher,x.Age,x.Powers,x.Association,x.ImgUrl));
 
             return new GetHeroResponse(foundHeroes);

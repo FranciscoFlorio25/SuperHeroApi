@@ -11,7 +11,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SuperHero.Application.UseCases.SuperHero.FindHeroByName
+namespace SuperHero.Application.UseCases.SuperHero.GetHeroById
 {
     public class GetHeroByIdRequestHandler : IRequestHandler<GetHeroByIdRequest, Result<GetHeroByIdResponse>>
     {
