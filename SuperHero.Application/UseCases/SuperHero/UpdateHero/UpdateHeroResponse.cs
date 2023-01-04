@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace SuperHero.Application.UseCases.SuperHero.UpdateHeros
 {
-    public record UpdateHeroResponse(Guid Id, string Name, string Description, string Publisher, int Age,
+    public record UpdateHeroResponse(string Name, string Description, string Publisher, int Age,
         string? Powers, string? Association, string? ImgUrl);
 }

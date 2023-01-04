@@ -24,7 +24,7 @@ namespace SuperHero.Application.UseCases.SuperHero.UpdateHero
 
         public async Task<Result<UpdateHeroResponse>> Handle(UpdateHeroRequest request, CancellationToken cancellationToken)
         {
-            var toUpdate = await _context.SuperHeros.AsNoTracking().SingleAsync(x => x.Id == request.id,cancellationToken);
+            var toUpdate = await _context.SuperHeros.AsNoTracking().FirstOrDefaultAsync(x => x.Id == request.id,cancellationToken);
 
             if (toUpdate == null)
             {
@@ -38,7 +38,7 @@ namespace SuperHero.Application.UseCases.SuperHero.UpdateHero
                _context.SuperHeros.Update(toUpdate);
                await _context.SaveChangesAsync(cancellationToken);
 
-                return new UpdateHeroResponse(toUpdate.Id,
+                return new UpdateHeroResponse(
                     toUpdate.Name,
                     toUpdate.Description,
                     toUpdate.Publisher,
