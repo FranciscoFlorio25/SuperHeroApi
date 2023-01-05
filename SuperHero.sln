@@ -5,13 +5,15 @@ VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperHero.Api", "SuperHero.Api\SuperHero.Api.csproj", "{773CCBF0-67AE-4EEB-A219-576277299ED0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperHero.Proxi", "SuperHero.Proxi\SuperHero.Proxi.csproj", "{8E7461EB-743A-473A-B403-48ECD2540C9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperHero.Proxy", "SuperHero.Proxy\SuperHero.Proxy.csproj", "{8E7461EB-743A-473A-B403-48ECD2540C9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperHero.Infraestructure", "SuperHero.Infraestructure\SuperHero.Infraestructure.csproj", "{E62DE4EC-2A14-4CAA-8367-DD416C7337C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperHero.Infraestructure", "SuperHero.Infraestructure\SuperHero.Infraestructure.csproj", "{E62DE4EC-2A14-4CAA-8367-DD416C7337C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperHero.Application", "SuperHero.Application\SuperHero.Application.csproj", "{4BB242E8-576F-4C45-86FB-3D6A26C87D1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperHero.Application", "SuperHero.Application\SuperHero.Application.csproj", "{4BB242E8-576F-4C45-86FB-3D6A26C87D1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperHero.Domain", "SuperHero.Domain\SuperHero.Domain.csproj", "{38D83286-8047-4527-B43D-BC1D2E9A52B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperHero.Domain", "SuperHero.Domain\SuperHero.Domain.csproj", "{38D83286-8047-4527-B43D-BC1D2E9A52B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{DB87911F-D4DD-4A34-8394-CB7E51A18897}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +44,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{773CCBF0-67AE-4EEB-A219-576277299ED0} = {DB87911F-D4DD-4A34-8394-CB7E51A18897}
+		{E62DE4EC-2A14-4CAA-8367-DD416C7337C4} = {DB87911F-D4DD-4A34-8394-CB7E51A18897}
+		{4BB242E8-576F-4C45-86FB-3D6A26C87D1A} = {DB87911F-D4DD-4A34-8394-CB7E51A18897}
+		{38D83286-8047-4527-B43D-BC1D2E9A52B9} = {DB87911F-D4DD-4A34-8394-CB7E51A18897}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EA5EAE5A-DC25-4822-B142-AB181F07B60C}
