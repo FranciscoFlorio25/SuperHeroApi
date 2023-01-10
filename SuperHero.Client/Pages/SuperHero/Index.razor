@@ -1,0 +1,73 @@
+﻿@page "/herolist"
+@using ViewModel.SuperHeroDto
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+<h3>Super Heros</h3>
+@if(superHeros == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Publisher</th>
+                <th>Age</th>
+                <th>Powers</th>
+                <th>Association</th>
+                <th>ImgUrl</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var hero in superHeros)
+            {
+                <tr>
+                   <td>@hero.Id.toString()</td>
+                   <td>@hero.Name</td>
+                   <td>@hero.Description</td>
+                   <td>@hero.Publisher</td>
+                   <td>@hero.Age</td>
+                   <td>@hero.Powers</td>
+                   <td>@hero.Association</td>
+                   <td> <img url="@hero.ImgUrl" alt="Image of the hero"/> </td>
+                   <td>
+                       <button class="btn btn-info" @onclick="(()=>Edit(hero.Id))">Edit</button>
+                   </td>
+                    <td>
+                        <button class="btn btn-danger" @onclick="(()=>Delete(hero.Id))">Delete</button>
+                    </td>
+                </tr> 
+            }
+        </tbody>
+    </table>
+    <div>
+        <button class="btn btn-success" @onclick="Create">Add a Hero</button>
+    </div>
+}
+@code{
+    private List<ViewModel.SuperHeroDto> superHeros;
+    protected override async Task OnInitializedAsync()
+    {
+        superHeros = await Http.GetFromJsonAsync<List<ViewModel.SuperHeroDto.SuperHeroDto>>("/SuperHero");
+    }
+
+    private async Task Delete(Guid id)
+    {
+        await Http.DeleteAsync($"/SuperHero/{id}");
+        superHero = await Http.GetFromJsonAsync<List<ViewModel.SuperHeroDto>>("/SuperHero");
+        StateHasChanged();
+    }
+    private void Edit(int id)
+    {
+        Navigation.NavigateTo($"/Hero/edit/{id}")
+    }
+    private void Create()
+    {
+       Navigation.NavigateTo("/Hero/create")
+    }
+}

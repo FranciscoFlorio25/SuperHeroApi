@@ -24,7 +24,7 @@ namespace SuperHero.Api.Routes
             group.MapGet("{id}", async (Guid id,IMediator mediator) =>
             await mediator.Send(new GetHeroByIdRequest(id)).ToHttpResult());
 
-            group.MapGet("{name}", async (string name, IMediator mediator) =>
+            group.MapGet("Heros/{name}", async (string name, IMediator mediator) =>
             await mediator.Send(new GetHeroByNameRequest(name)).ToHttpResult());
 
             group.MapPost("", async (CreateHeroRequest request, IMediator mediator) =>

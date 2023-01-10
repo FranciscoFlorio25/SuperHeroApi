@@ -1,4 +1,4 @@
-﻿}using MediatR;
+﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using SuperHero.Application.Data;
 using SuperHero.Application.Dto.Result;
