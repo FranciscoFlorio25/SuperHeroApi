@@ -58,7 +58,7 @@ else
 
     private async Task Delete(string id)
     {
-        await Http.DeleteAsync($"https://localhost:44309/SuperHero/{id}");
+        await Http.DeleteAsync($"/SuperHero/{id}");
         superHeros = await Http.GetFromJsonAsync<List<SuperHeroDto>>("/SuperHero/");
         StateHasChanged();
     }
