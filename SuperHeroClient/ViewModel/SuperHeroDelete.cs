@@ -1,4 +1,4 @@
-﻿namespace SuperHero.Client.ViewModel
+﻿namespace SuperHeroClient.ViewModel
 {
     public record SuperHeroDelete
     (

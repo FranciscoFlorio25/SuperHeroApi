@@ -1,11 +1,13 @@
-﻿namespace SuperHero.Client.ViewModel
+﻿namespace SuperHeroClient.ViewModel
 {
-    public record SuperHeroCreate(Guid Id,
+    public record SuperHeroDto(
+     Guid Id,
      string Name,
      string Description,
      string Publisher,
      int Age,
      string? Powers,
      string? Association,
-     string? ImgUrl);
+     string? ImgUrl
+     );
 }

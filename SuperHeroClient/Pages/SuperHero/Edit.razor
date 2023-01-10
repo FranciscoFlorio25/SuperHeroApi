@@ -1,0 +1,60 @@
+﻿@page "/Hero/edit/{id}"
+@using ViewModel
+@inject HttpClient Http
+@inject NavigationManager Navigation
+<h3>Update Hero</h3>
+@if (_Hero==null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <EditForm Model="_Hero" OnInvalidSubmit="Put" >
+        <div class="form-group">
+            <label>Name: </label>
+            <InputText @bind-Value="_Hero.Name" />
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <InputText @bind-Value="_Hero.Description"/>
+        </div>
+        <div class="form-group">
+            <label>Publisher</label>
+            <InputText @bind-Value="_Hero.Publisher"/>
+        </div>
+        <div class="form-group">
+            <label>Age</label>
+            <InputNumber @bind-Value="_Hero.Age"/>
+        </div>
+        <div class="form-group">
+            <label>Powers</label>
+            <InputText @bind-Value="_Hero.Powers" />
+        </div>
+        <div class="form-group">
+            <label>Association</label>
+            <InputText @bind-Value="_Hero.Association"/>
+        </div>
+        <div class="form-group">
+            <label>Image Url</label>
+            <InputText @bind-Value="_Hero.ImgUrl" />
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-success" value="Update" />
+        </div>
+    </EditForm>
+}
+
+@code {
+    [Parameter]
+    public Guid id{ get; set; }
+    private SuperHeroUpdate _Hero = null;
+    protected override async Task OnInitializedAsync()
+    {
+        _Hero = await Http.GetFromJsonAsync<SuperHeroUpdate>($"/SuperHero/{id}");
+    }
+    protected async Task Put()
+    {
+        await Http.PutAsJsonAsync<SuperHeroUpdate>($"/SuperHero/{id}",_Hero);
+        Navigation.NavigateTo("/herolist");
+    }
+}
